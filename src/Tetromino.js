@@ -30,8 +30,14 @@ class Tetromino {
     this.x++;
   }
 
-  moveDown() {
+  moveDown(board) {
     this.y++;
+    // Basic collision detection (bottom of the board)
+    if (this.y + this.shape.length > 20) {
+      this.y--;
+      return false;
+    }
+    return true;
   }
 }
 
